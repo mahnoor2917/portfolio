@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f7f8fb;
+  color: #14213d;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: "Poppins", sans-serif;
+}
+
+/* ---------- 3D tilt card ---------- */
+.tilt-card {
+  perspective: 1200px;
+}
+
+.tilt-card-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.tilt-card:hover .tilt-card-inner {
+  box-shadow: 0 30px 60px -15px rgba(11, 31, 77, 0.35);
+}
+
+.tilt-glare {
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* ---------- Hero gradient ---------- */
+.hero-gradient {
+  background: radial-gradient(circle at 20% 20%, #12306e 0%, #0b1f4d 45%, #071433 100%);
+}
+
+/* ---------- Floating animation ---------- */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(3deg); }
+}
+.animate-float-slow {
+  animation: floatSlow 7s ease-in-out infinite;
+}
+
+/* ---------- Marquee for brand strip ---------- */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* ---------- Fade-in-up on scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #eef0f5;
+}
+::-webkit-scrollbar-thumb {
+  background: #f5820b;
+  border-radius: 999px;
+}
